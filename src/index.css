@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-dark: #0B0C15;
+  --panel: #0E0F19;
+  --card: #1A1C26;
+  --border-dim: rgba(255,255,255,0.06);
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }

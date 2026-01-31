@@ -1,0 +1,511 @@
+{
+  "meta": {
+    "generated_at_local": "2026-01-31T01:00:00+05:30",
+    "analysis_type": "cricket_batting_biomechanics_side_view_only",
+    "frame_rate_fps": 90,
+    "inputs": {
+      "derived_metrics_path": "C:\\Users\\nalin\\Downloads\\sync2-o\\sync2-o\\frames_combined.json",
+      "derived_metrics_file": "derived_metrics.json",
+      "side_metrics_file": "side_metrics.json"
+    },
+    "download_link": "sandbox:/mnt/data/cover_drive_report.json"
+  },
+  "shot_context": {
+    "shot_type": "classical_cover_drive",
+    "definition": "Front-foot, off-side stroke with emphasis on timing, balance, and directional control.",
+    "power_intent": false,
+    "constraints_acknowledged": [
+      "side-view metrics only",
+      "no ball/bat-face/bat-path inference beyond provided metrics",
+      "no GRF/EMG/multi-view assumptions",
+      "sequencing derived only from explicit peak frames"
+    ],
+    "bat_backlift_angle_definition": "Measured relative to the vertical axis (0° = vertical; larger = laid back further). Small values indicate compact, near-vertical backlift."
+  },
+  "phase_ranges": {
+    "frames": {
+      "P0": [
+        0,
+        150
+      ],
+      "P2": [
+        151,
+        229
+      ],
+      "P3": [
+        230,
+        259
+      ]
+    },
+    "seconds_at_90fps": {
+      "P0": [
+        0.0,
+        1.6666666666666667
+      ],
+      "P2": [
+        1.6777777777777778,
+        2.5444444444444443
+      ],
+      "P3": [
+        2.5555555555555554,
+        2.8777777777777778
+      ]
+    }
+  },
+  "key_frames": {
+    "phase_boundaries_frames": {
+      "P0": [
+        0,
+        150
+      ],
+      "P2": [
+        151,
+        229
+      ],
+      "P3": [
+        230,
+        259
+      ],
+      "PostP3": [
+        260,
+        null
+      ]
+    },
+    "pelvis_onset_frame": 230,
+    "trunk_onset_frame": 230,
+    "lead_arm_onset_frame": 230,
+    "pelvis_peak_frame": 259,
+    "trunk_peak_frame": 237,
+    "lead_arm_peak_frame": 253,
+    "hip_shoulder_separation_max_frame_P2": 229
+  },
+  "report": {
+    "summary": {
+      "what_went_right": [
+        "Compact backlift during load (bat stayed near-vertical relative to the vertical axis).",
+        "Clear shift toward the front foot through the downswing window (weight transfer moved progressively forward).",
+        "Peak timing followed a trunk → lead arm → pelvis pattern, which suits a placement-focused cover drive.",
+        "Ready position showed a stable base with minimal forward trunk lean."
+      ],
+      "what_to_improve": [
+        "Lead knee remained notably flexed during the downswing window, which may reduce front-leg 'bracing' and directional control at impact.",
+        "Hip–shoulder separation was substantial into the downswing window; if mistimed, this can pull the swing across the line rather than through extra cover."
+      ],
+      "sequencing_archetype": {
+        "status": "determinate",
+        "archetype": "arm_dominant",
+        "peak_order_by_frame": [
+          [
+            "trunk",
+            237
+          ],
+          [
+            "lead_arm",
+            253
+          ],
+          [
+            "pelvis",
+            259
+          ]
+        ]
+      }
+    },
+    "why": {
+      "P2_load_backlift_and_preparation": {
+        "observation": "Backlift angle was 3.90° relative to vertical at frame 229, indicating a compact, near-vertical backlift.",
+        "interpretation": "A compact backlift supports late adjustment and precise bat presentation, which aligns with a classical cover drive where timing and control outweigh power intent.",
+        "research_support": [
+          "Stuelcken et al., 2005",
+          "Kumar, 2017"
+        ]
+      },
+      "P3_weight_transfer_for_front_foot_drive": {
+        "observation": "During P3 (frames 230–259), WT fell from 0.508 to 0.198 (FrontBar mean 0.668).",
+        "interpretation": "That pattern indicates the body mass is moving onto the front foot through the downswing, consistent with a front-foot drive where balance over the front leg supports timing and directional control.",
+        "research_support": [
+          "Peploe et al., 2019",
+          "Yadav & Pal, 2018"
+        ]
+      },
+      "sequencing_archetype_cover_drive_fit": {
+        "observation": "Peak frames: trunk 237, lead arm 253, pelvis 259 (order: trunk → lead arm → pelvis).",
+        "interpretation": "This 'arm-dominant' peak order is compatible with placement-focused strokes: the trunk and arms can guide bat acceleration and face stability without an early pelvis-driven power sequence.",
+        "research_support": [
+          "Stuelcken et al., 2005",
+          "Portus & Farrow, 2011"
+        ]
+      },
+      "P3_front_leg_mechanics_control": {
+        "observation": "Lead knee flexion during P3 averaged 50.50° (min 45.00°, max 56.85°).",
+        "interpretation": "A more flexed lead knee through the hitting window can reduce a firm front-side 'post', potentially affecting stability and the ability to hit straight through the off-side line. This is a control cost more than a power cost for a cover drive.",
+        "research_support": [
+          "Peploe et al., 2019",
+          "Yadav & Pal, 2018"
+        ]
+      },
+      "hip_shoulder_separation_timing_risk_note": {
+        "observation": "Hip–shoulder separation in P3 averaged 37.14° (max 61.11°).",
+        "interpretation": "Separation can contribute to bat acceleration, but on a classical cover drive it must stay 'in sync' with the step and head stability; otherwise it can drag the swing across the line. (data-supported, research-limited)",
+        "research_support": [
+          "Stuelcken et al., 2005"
+        ]
+      }
+    },
+    "data_considered": {
+      "inputs": {
+        "derived_metrics_json": "derived_metrics.json",
+        "side_metrics_json": "side_metrics.json"
+      },
+      "frame_rate_fps": 90,
+      "pose_frames_n": 376,
+      "wt_frames_n_total": 534,
+      "wt_alignment_rule_applied": {
+        "pose_frames_used": 376,
+        "wt_frames_used_from_start": 376,
+        "note": "WT series longer than pose series; used the first overlapping range from the start as instructed."
+      },
+      "side_metrics_single_frame": {
+        "stance_width": {
+          "value": 75.40031233749443,
+          "frame": 0,
+          "coordinates": [
+            {
+              "x": 596,
+              "y": 566,
+              "z": 0.03339004144072533,
+              "visibility": 0.9866602420806885
+            },
+            {
+              "x": 547,
+              "y": 567,
+              "z": 0.010753518901765347,
+              "visibility": 0.9924924969673157
+            }
+          ],
+          "unit": "cm",
+          "original_pixels": 49.01020301937138,
+          "scale_factor": 0.65
+        },
+        "trunk_forward_lean": {
+          "value": 2.1210963966614473,
+          "frame": 0,
+          "coordinates": [
+            {
+              "x": 567.5,
+              "y": 387.5
+            },
+            {
+              "x": 569.5,
+              "y": 441.5
+            }
+          ],
+          "unit": "degrees"
+        },
+        "left_knee_angle": {
+          "value": 175.8589886781755,
+          "frame": 0,
+          "coordinates": [
+            {
+              "x": 585,
+              "y": 438,
+              "z": 0.007431291043758392,
+              "visibility": 0.9999920129776001
+            },
+            {
+              "x": 593,
+              "y": 504,
+              "z": -0.044566500931978226,
+              "visibility": 0.9826092720031738
+            },
+            {
+              "x": 596,
+              "y": 566,
+              "z": 0.03339004144072533,
+              "visibility": 0.9866602420806885
+            }
+          ],
+          "leg": "left",
+          "unit": "degrees"
+        },
+        "right_knee_angle": {
+          "value": 167.97524772816655,
+          "frame": 0,
+          "coordinates": [
+            {
+              "x": 554,
+              "y": 445,
+              "z": -0.007452140562236309,
+              "visibility": 0.9999916553497314
+            },
+            {
+              "x": 544,
+              "y": 507,
+              "z": -0.04664148390293121,
+              "visibility": 0.9762468338012695
+            },
+            {
+              "x": 547,
+              "y": 567,
+              "z": 0.010753518901765347,
+              "visibility": 0.9924924969673157
+            }
+          ],
+          "leg": "right",
+          "unit": "degrees"
+        },
+        "bat_backlift_angle_relative_to_vertical": {
+          "value": 3.8981842427372135,
+          "frame": 229,
+          "handle_bottom": {
+            "x": 550.2516095842632,
+            "y": 369.9022975376672
+          },
+          "bat_middle": {
+            "x": 546.8425101143971,
+            "y": 319.8724574497766
+          },
+          "unit": "degrees"
+        }
+      },
+      "bat_swing_speed_P3": {
+        "bat_swing_speed_P3_mean": 51.53465967142723,
+        "unit": "km_per_hr",
+        "scale_factor": 0.65
+      },
+      "weight_transfer_phase_summaries": {
+        "P0": {
+          "n_frames": 151,
+          "n_valid_WT": 151,
+          "n_valid_WTdot": 150,
+          "WT_start": 0.5240869776482016,
+          "WT_end": 0.5602269193391637,
+          "WT_min": 0.49352380952381075,
+          "WT_max": 0.5612458697764815,
+          "WT_mean": 0.5247797289208973,
+          "WT_std": 0.0177035136779292,
+          "WTdot_min": -0.6997412536443032,
+          "WTdot_max": 0.3696428571428342,
+          "WTdot_mean": 0.02298928571428571,
+          "FrontBar_mean": 0.47522027107910275,
+          "BackBar_mean": 0.5247797289208973,
+          "COMx_start": 570.225,
+          "COMx_end": 567.575,
+          "COMy_start": 413.375,
+          "COMy_end": 416.62499999999994
+        },
+        "P2": {
+          "n_frames": 79,
+          "n_valid_WT": 79,
+          "n_valid_WTdot": 79,
+          "WT_start": 0.5559625850340131,
+          "WT_end": 0.5217067771532714,
+          "WT_min": 0.4939030039133413,
+          "WT_max": 0.670476260699218,
+          "WT_mean": 0.5752902313036415,
+          "WT_std": 0.04844360297723817,
+          "WTdot_min": -1.2769026404571093,
+          "WTdot_max": 1.9193442501132543,
+          "WTdot_mean": -0.049468402396539254,
+          "FrontBar_mean": 0.42470976869635846,
+          "BackBar_mean": 0.5752902313036415,
+          "COMx_start": 567.575,
+          "COMx_end": 607.2,
+          "COMy_start": 416.62499999999994,
+          "COMy_end": 428.42499999999995
+        },
+        "P3": {
+          "n_frames": 30,
+          "n_valid_WT": 30,
+          "n_valid_WTdot": 30,
+          "WT_start": 0.5076381985682026,
+          "WT_end": 0.1975417071251884,
+          "WT_min": 0.1975417071251884,
+          "WT_max": 0.5076381985682026,
+          "WT_mean": 0.33226453022801583,
+          "WT_std": 0.09924353376437835,
+          "WTdot_min": -1.7663237924865476,
+          "WTdot_max": -0.3485504473466737,
+          "WTdot_mean": -0.9627354308900834,
+          "FrontBar_mean": 0.6677354697719842,
+          "BackBar_mean": 0.33226453022801583,
+          "COMx_start": 609.35,
+          "COMx_end": 653.425,
+          "COMy_start": 429.6,
+          "COMy_end": 442.9
+        }
+      },
+      "derived_phase_metrics_used": {
+        "P2": {
+          "pelvis_rotation_deg_ROM": 13.756599207607898,
+          "trunk_rotation_deg_ROM": 7.588330400932392,
+          "pelvis_rotation_peak_velocity_deg_s": 79.92050324949791,
+          "trunk_rotation_peak_velocity_deg_s": 35.008209830926944,
+          "hip_shoulder_separation_max_deg": 28.297600307549697,
+          "hip_shoulder_separation_time_of_max_frame": 229
+        },
+        "P3": {
+          "hip_shoulder_separation_deg_summary": {
+            "mean": 37.144163703211575,
+            "std": 11.01365123530139,
+            "min": 27.804399460275377,
+            "max": 61.110826719036574
+          },
+          "lead_knee_flexion_deg_summary": {
+            "mean": 50.50162222465185,
+            "std": 4.531739796823893,
+            "min": 44.99915798008774,
+            "max": 56.846882142536046
+          },
+          "lead_elbow_angle_deg_summary": {
+            "mean": 115.28739737456536,
+            "std": 17.954981378829768,
+            "min": 92.02804522364205,
+            "max": 141.87874793998927
+          },
+          "pelvis_rotation_deg_summary": {
+            "mean": -5.969349562736635,
+            "std": 0.521222772079962,
+            "min": -6.911812795950397,
+            "max": -5.121319354938635
+          },
+          "trunk_rotation_deg_summary": {
+            "mean": 5.494488595981941,
+            "std": 2.0314819703861087,
+            "min": 1.7091642855526745,
+            "max": 8.747360413771318
+          },
+          "peak_frames": {
+            "pelvis_peak_frame": 259,
+            "trunk_peak_frame": 237,
+            "lead_arm_peak_frame": 253
+          }
+        }
+      }
+    }
+  },
+  "visuals": {
+    "note": "No images generated or described. Use frame indices below to locate moments in your existing extracted frames.",
+    "frames_to_review": {
+      "P0_range": [
+        0,
+        150
+      ],
+      "P2_range": [
+        151,
+        229
+      ],
+      "P3_range": [
+        230,
+        259
+      ],
+      "key_frames": {
+        "backlift_angle_frame": 229,
+        "trunk_peak_frame": 237,
+        "lead_arm_peak_frame": 253,
+        "pelvis_peak_frame": 259
+      }
+    }
+  },
+  "data_audit": {
+    "metric_reliability": {
+      "weight_transfer.P0": {
+        "n_frames": 151,
+        "n_valid_WT": 151,
+        "n_valid_WTdot": 150,
+        "status": "usable"
+      },
+      "weight_transfer.P2": {
+        "n_frames": 79,
+        "n_valid_WT": 79,
+        "n_valid_WTdot": 79,
+        "status": "usable"
+      },
+      "weight_transfer.P3": {
+        "n_frames": 30,
+        "n_valid_WT": 30,
+        "n_valid_WTdot": 30,
+        "status": "usable"
+      }
+    },
+    "sequencing_inputs_used": {
+      "pelvis_peak_frame": 259,
+      "trunk_peak_frame": 237,
+      "lead_arm_peak_frame": 253,
+      "derived_archetype": "arm_dominant",
+      "note": "Any pre-computed sequencing labels/scores were ignored as instructed."
+    }
+  },
+  "training_prescription": {
+    "goals": [
+      "Keep the cover drive control-first: stable base, compact load, smooth forward move, and a braced front side.",
+      "Preserve the current arm-dominant sequencing while improving front-leg stability through the hitting window."
+    ],
+    "drills": [
+      {
+        "name": "Shadow cover-drive with freeze at 'end of P3'",
+        "how": "Rehearse the shot without a ball. Move from load into the downswing and freeze for 2 seconds at the end of P3, feeling a tall front side and stable head position.",
+        "ties_to_data": "Targets the observed lead-knee flexion pattern in P3 while preserving the compact backlift.",
+        "research_support": [
+          "Portus & Farrow, 2011",
+          "Yadav & Pal, 2018"
+        ]
+      },
+      {
+        "name": "Step-and-hold weight transfer (front-foot base)",
+        "how": "From stance, step forward into the drive base and hold balance for 3 seconds before swinging. Repeat with small variations in step length to train stability under different lines.",
+        "ties_to_data": "Reinforces the forward WT trend observed in P3 and helps keep the movement controlled rather than rushed.",
+        "research_support": [
+          "Peploe et al., 2019",
+          "Portus & Farrow, 2011"
+        ]
+      },
+      {
+        "name": "One-hand lead-arm guidance swings (placement intent)",
+        "how": "Short, controlled one-hand swings (lead hand) focusing on presenting the bat straight through the off-side. Keep the load compact and avoid forcing hip rotation.",
+        "ties_to_data": "Builds on the arm-dominant peak order while reducing reliance on pelvis-driven power.",
+        "research_support": [
+          "Stuelcken et al., 2005",
+          "Kumar, 2017"
+        ]
+      }
+    ],
+    "session_structure": {
+      "warmup": [
+        "10–15 slow shadow reps emphasizing compact backlift and balance."
+      ],
+      "main": [
+        "3 x 6 reps each drill, rest long enough to keep quality high (placement intent)."
+      ],
+      "skill_transfer": [
+        "Finish with controlled throwdowns aiming for timing and a straight bat path feel (no power intent)."
+      ]
+    }
+  },
+  "coach_view": {
+    "one_line_summary": "Compact pick-up, a clear move onto the front foot, and an arm-led swing — now tighten the front-leg brace so the bat goes even straighter through cover.",
+    "key_messages": [
+      "Your backlift is nicely compact — that’s perfect for a classical cover drive.",
+      "You’re getting forward onto the front foot through the swing, which supports timing.",
+      "Your swing is arm-led, and that’s totally fine for a placement cover drive.",
+      "Next step: make the front leg feel a bit ‘taller’ through the hit so you don’t lose your line."
+    ],
+    "phase_by_phase_story": {
+      "P0": "You start with a steady base and a fairly upright body, which sets you up to play late and under control.",
+      "P2": "The bat pick-up is compact — good for getting into position without over-committing, so you can still adjust to the ball.",
+      "P3": "You move forward onto the front foot and swing with the arms leading — good for placing the ball — but the front leg stays a bit ‘soft’, which can make the bat drift across the line."
+    },
+    "what_to_tell_the_player": {
+      "P2": "Pick it up compact and calm — feel like the bat stays close to you.",
+      "P3": "Step, get tall on the front leg, then swing through the line — don’t let the front knee keep sinking.",
+      "overall": "Control first: stable head, smooth forward move, and a straight swing through extra cover."
+    },
+    "watch_for_on_video": {
+      "P2": [
+        "Bat pick-up stays close and near-vertical, without a big laid-back lift."
+      ],
+      "P3": [
+        "Front leg firms up through the hit instead of 'sinking' as the bat comes down."
+      ]
+    }
+  }
+}

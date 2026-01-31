@@ -1,0 +1,5 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [{ "source": "/((?!api|_next/static|_next/image|favicon.ico|.*\\.(?:json|png|svg|mp4|ico|js|css|woff2?)$).*)", "destination": "/index.html" }]
+}
