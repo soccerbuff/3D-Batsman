@@ -10,6 +10,7 @@ import { getStoryboardFrames, getReportSummary, getReportWhy, getTimelines, getM
 
 const DASHBOARD_JSON = '/cover_drive_side_dashboard.json';
 const METRICS_JSON = '/side_metrics.json';
+const DERIVED_METRICS_JSON = '/derived_metrics.json';
 
 export default function App() {
   const [data, setData] = useState(null);
@@ -17,6 +18,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [metrics, setMetrics] = useState(null);
   const [metricsError, setMetricsError] = useState(null);
+  const [derivedMetrics, setDerivedMetrics] = useState(null);
 
   useEffect(() => {
     fetch(DASHBOARD_JSON)
@@ -37,6 +39,16 @@ export default function App() {
       })
       .then(setMetrics)
       .catch(setMetricsError);
+  }, []);
+
+  useEffect(() => {
+    fetch(DERIVED_METRICS_JSON)
+      .then((res) => {
+        if (!res.ok) throw new Error(`Failed to load derived metrics: ${res.status}`);
+        return res.json();
+      })
+      .then(setDerivedMetrics)
+      .catch(() => setDerivedMetrics(null));
   }, []);
 
   if (loading) {
@@ -81,7 +93,6 @@ export default function App() {
         <div className="w-[30%] border-l border-white/10 bg-panel flex flex-col">
           <div className="p-6 border-b border-white/5 shrink-0">
             <h2 className="text-lg font-bold text-white tracking-tight">Performance Biometrics</h2>
-            <p className="text-sm text-slate-500 mt-1">Live kinematic data stream</p>
           </div>
           <div className="flex-1 p-6 overflow-y-auto">
             <MetricsPanel metrics={metrics} error={metricsError} />
@@ -93,7 +104,7 @@ export default function App() {
         <ReportSummary summary={reportSummary} />
         <Storyboard frames={storyboardFrames} />
         <ReportWhy why={reportWhy} />
-        <Timelines timelines={timelines} />
+        <Timelines timelines={timelines} derivedMetrics={derivedMetrics} />
       </main>
     </div>
   );

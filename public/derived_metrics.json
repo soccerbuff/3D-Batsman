@@ -1,0 +1,368 @@
+{
+  "metadata": {
+    "pose_json_path": "C:\\Users\\nalin\\Downloads\\sync2-o\\sync2-o\\frames_combined.json",
+    "frame_rate": 90,
+    "n_frames": 376,
+    "n_joints": 70,
+    "phase_definitions": {
+      "P0": [
+        0,
+        150
+      ],
+      "P2": [
+        151,
+        229
+      ],
+      "P3": [
+        230,
+        259
+      ],
+      "PostP3": [
+        260,
+        null
+      ]
+    }
+  },
+  "phase_metrics": {
+    "P0": {
+      "pelvis_rotation_deg": {
+        "mean": -0.3306681566970848,
+        "std": 0.8248672166804363,
+        "min": -1.4649790652339334,
+        "max": 2.0219356074098873
+      },
+      "trunk_rotation_deg": {
+        "mean": -0.29571017833393726,
+        "std": 0.3292274074087934,
+        "min": -0.9327901746700464,
+        "max": 0.22496662174791027
+      },
+      "hip_shoulder_separation_deg": {
+        "mean": 17.000986759992223,
+        "std": 1.6158078922805663,
+        "min": 13.730877168795871,
+        "max": 19.208839253563998
+      },
+      "lead_knee_flexion_deg": {
+        "mean": 96.37880279824287,
+        "std": 1.5868040956077558,
+        "min": 93.90068472789365,
+        "max": 100.68140274690445
+      },
+      "lead_elbow_angle_deg": {
+        "mean": 108.84990017710868,
+        "std": 3.0399560455455292,
+        "min": 104.55547848114222,
+        "max": 113.3988750235926
+      },
+      "lead_wrist_angle_deg": {
+        "mean": 108.84990017710868,
+        "std": 3.0399560455455292,
+        "min": 104.55547848114222,
+        "max": 113.3988750235926
+      },
+      "pelvis_rotation_angular_velocity_rad_s": {
+        "mean": -0.004819688774787264,
+        "std": 0.16604090453111212,
+        "min": -0.48191796141806603,
+        "max": 0.29817358712640774
+      },
+      "pelvis_rotation_angular_velocity_deg_s": {
+        "mean": -0.2761478253618888,
+        "std": 9.51344305616735,
+        "min": -27.611865260803626,
+        "max": 17.0840881046195
+      },
+      "trunk_rotation_angular_velocity_rad_s": {
+        "mean": -0.004008029852058731,
+        "std": 0.05017392468046387,
+        "min": -0.12730810654712177,
+        "max": 0.12289590458924812
+      },
+      "trunk_rotation_angular_velocity_deg_s": {
+        "mean": -0.22964319468540903,
+        "std": 2.874754125797857,
+        "min": -7.294217202951881,
+        "max": 7.041416652406363
+      },
+      "pelvis_rotation_angular_acceleration_rad_s2": {
+        "mean": -0.005819921405259731,
+        "std": 3.633495561592534,
+        "min": -9.237972927097289,
+        "max": 8.208887111933045
+      },
+      "trunk_rotation_angular_acceleration_rad_s2": {
+        "mean": 0.04988492446313839,
+        "std": 1.1228722995223956,
+        "min": -3.123054707824219,
+        "max": 3.4930317490691336
+      },
+      "stance_width": {
+        "mean": 0.7355778774428905,
+        "std": 0.49867077438345,
+        "min": 0.0,
+        "max": 2.0219356074098873
+      },
+      "COM_sway": {
+        "variance": 0.6804059251541299,
+        "rms": 0.8886773064546983
+      },
+      "head_stability_rms": 0.0
+    },
+    "P2": {
+      "pelvis_rotation_deg": {
+        "mean": -3.9881679127935032,
+        "std": 4.759115908889268,
+        "min": -11.270043345211436,
+        "max": 2.4865558623964636
+      },
+      "trunk_rotation_deg": {
+        "mean": -2.338209065304287,
+        "std": 2.1110653956144203,
+        "min": -6.167828827096116,
+        "max": 1.4205015738362763
+      },
+      "hip_shoulder_separation_deg": {
+        "mean": 14.140497939905925,
+        "std": 7.238688190987991,
+        "min": 0.528669542123892,
+        "max": 28.297600307549697
+      },
+      "lead_knee_flexion_deg": {
+        "mean": 85.26467780075244,
+        "std": 15.45660347391263,
+        "min": 56.9535215872295,
+        "max": 102.35496959701851
+      },
+      "lead_elbow_angle_deg": {
+        "mean": 112.03883672789216,
+        "std": 17.10645479128009,
+        "min": 91.7314669422784,
+        "max": 146.73622126966552
+      },
+      "lead_wrist_angle_deg": {
+        "mean": 112.03883672789216,
+        "std": 17.10645479128009,
+        "min": 91.7314669422784,
+        "max": 146.73622126966552
+      },
+      "pelvis_rotation_angular_velocity_rad_s": {
+        "mean": -0.1288098012848208,
+        "std": 0.5644067913768109,
+        "min": -1.3948759215545656,
+        "max": 0.5677829953713834
+      },
+      "pelvis_rotation_angular_velocity_deg_s": {
+        "mean": -7.380257973539041,
+        "std": 32.33812707441201,
+        "min": -79.92050324949791,
+        "max": 32.53156931407623
+      },
+      "trunk_rotation_angular_velocity_rad_s": {
+        "mean": 0.0385901999303226,
+        "std": 0.3367539971470937,
+        "min": -0.4814266085574804,
+        "max": 0.6110085267787225
+      },
+      "trunk_rotation_angular_velocity_deg_s": {
+        "mean": 2.211055586573529,
+        "std": 19.294582770689033,
+        "min": -27.583712815640386,
+        "max": 35.008209830926944
+      },
+      "pelvis_rotation_angular_acceleration_rad_s2": {
+        "mean": 0.1167564966420361,
+        "std": 10.260605737167154,
+        "min": -21.187677644942855,
+        "max": 17.499743312849926
+      },
+      "trunk_rotation_angular_acceleration_rad_s2": {
+        "mean": 0.4582663922021541,
+        "std": 3.283029256938818,
+        "min": -5.10138613223553,
+        "max": 7.830024863014599
+      },
+      "pelvis_rotation_deg_ROM": 13.756599207607898,
+      "pelvis_rotation_peak_velocity": 79.92050324949791,
+      "trunk_rotation_deg_ROM": 7.588330400932392,
+      "trunk_rotation_peak_velocity": 35.008209830926944,
+      "hip_shoulder_separation": {
+        "max": 28.297600307549697,
+        "time_of_max_frame": 229
+      }
+    },
+    "P3": {
+      "pelvis_rotation_deg": {
+        "mean": -5.969349562736635,
+        "std": 0.521222772079962,
+        "min": -6.911812795950397,
+        "max": -5.121319354938635
+      },
+      "trunk_rotation_deg": {
+        "mean": 5.494488595981941,
+        "std": 2.0314819703861087,
+        "min": 1.7091642855526745,
+        "max": 8.747360413771318
+      },
+      "hip_shoulder_separation_deg": {
+        "mean": 37.144163703211575,
+        "std": 11.01365123530139,
+        "min": 27.804399460275377,
+        "max": 61.110826719036574
+      },
+      "lead_knee_flexion_deg": {
+        "mean": 50.50162222465185,
+        "std": 4.531739796823893,
+        "min": 44.99915798008774,
+        "max": 56.846882142536046
+      },
+      "lead_elbow_angle_deg": {
+        "mean": 115.28739737456536,
+        "std": 17.954981378829768,
+        "min": 92.02804522364205,
+        "max": 141.87874793998927
+      },
+      "lead_wrist_angle_deg": {
+        "mean": 115.28739737456536,
+        "std": 17.954981378829768,
+        "min": 92.02804522364205,
+        "max": 141.87874793998927
+      },
+      "pelvis_rotation_angular_velocity_rad_s": {
+        "mean": 0.10264524445175373,
+        "std": 0.08472224629674087,
+        "min": -0.04318028611670259,
+        "max": 0.3419774672994693
+      },
+      "pelvis_rotation_angular_velocity_deg_s": {
+        "mean": 5.881139294174119,
+        "std": 4.85422714367112,
+        "min": -2.4740481526544014,
+        "max": 19.593865564832715
+      },
+      "trunk_rotation_angular_velocity_rad_s": {
+        "mean": 0.3793418762470945,
+        "std": 0.11113927238401256,
+        "min": 0.1820666504299915,
+        "max": 0.5354905160108869
+      },
+      "trunk_rotation_angular_velocity_deg_s": {
+        "mean": 21.734688501532485,
+        "std": 6.367811245758782,
+        "min": 10.431650659722228,
+        "max": 30.681346536706457
+      },
+      "pelvis_rotation_angular_acceleration_rad_s2": {
+        "mean": 0.6468926037816689,
+        "std": 3.040102792636697,
+        "min": -3.2594338441417756,
+        "max": 7.181804911102874
+      },
+      "trunk_rotation_angular_acceleration_rad_s2": {
+        "mean": -0.7771938212718755,
+        "std": 3.350021666777134,
+        "min": -6.723068192872463,
+        "max": 4.877127257374069
+      },
+      "pelvis_onset_frame": 230,
+      "pelvis_peak_frame": 259,
+      "trunk_onset_frame": 230,
+      "trunk_peak_frame": 237,
+      "lead_arm_onset_frame": 230,
+      "lead_arm_peak_frame": 253
+    },
+    "PostP3": {
+      "pelvis_rotation_deg": {
+        "mean": -4.548894311742817,
+        "std": 0.5275194680296816,
+        "min": -5.601332854864778,
+        "max": -3.3798462783279035
+      },
+      "trunk_rotation_deg": {
+        "mean": 8.413990818495556,
+        "std": 1.3104530237350926,
+        "min": 6.890524041817784,
+        "max": 11.388717357114842
+      },
+      "hip_shoulder_separation_deg": {
+        "mean": 104.04797696207677,
+        "std": 11.881077190203479,
+        "min": 63.160862055446955,
+        "max": 112.60378231369029
+      },
+      "lead_knee_flexion_deg": {
+        "mean": 39.18861230605753,
+        "std": 2.269445454799429,
+        "min": 37.15603263534588,
+        "max": 45.357817334023025
+      },
+      "lead_elbow_angle_deg": {
+        "mean": 47.40859390285163,
+        "std": 13.81544808237264,
+        "min": 35.89812764356143,
+        "max": 111.05467652843258
+      },
+      "lead_wrist_angle_deg": {
+        "mean": 47.40859390285163,
+        "std": 13.81544808237264,
+        "min": 35.89812764356143,
+        "max": 111.05467652843258
+      },
+      "pelvis_rotation_angular_velocity_rad_s": {
+        "mean": 0.017233937573955853,
+        "std": 0.14559316154445784,
+        "min": -0.2863373574151126,
+        "max": 0.44623734279014404
+      },
+      "pelvis_rotation_angular_velocity_deg_s": {
+        "mean": 0.9874318873795995,
+        "std": 8.34187368246383,
+        "min": -16.40592209681494,
+        "max": 25.56751640300783
+      },
+      "trunk_rotation_angular_velocity_rad_s": {
+        "mean": 0.022348959408401984,
+        "std": 0.2025590722927991,
+        "min": -0.4984993419311907,
+        "max": 0.4574307179590819
+      },
+      "trunk_rotation_angular_velocity_deg_s": {
+        "mean": 1.280501050610627,
+        "std": 11.60577994446272,
+        "min": -28.561908382706136,
+        "max": 26.208849558694503
+      },
+      "pelvis_rotation_angular_acceleration_rad_s2": {
+        "mean": -0.045577376329061815,
+        "std": 2.6803930319184235,
+        "min": -9.634674851115058,
+        "max": 5.118700661273496
+      },
+      "trunk_rotation_angular_acceleration_rad_s2": {
+        "mean": 0.20701093402428164,
+        "std": 3.220599877431152,
+        "min": -8.607300046416986,
+        "max": 5.99768574868276
+      }
+    }
+  },
+  "sequencing_summary": {
+    "pelvis_onset_frame": 230,
+    "trunk_onset_frame": 230,
+    "lead_arm_onset_frame": 230,
+    "peak_order": [
+      "pelvis",
+      "trunk",
+      "lead_arm"
+    ],
+    "proximal_to_distal_score": 1.0,
+    "verdict": "clean_proximal_to_distal"
+  },
+  "qc": {
+    "missing_joint_counts": {},
+    "frames_missing_any_required_joint": 0,
+    "qc_flags": [],
+    "filtering_description": "Butterworth low-pass 6.0 Hz, 4th order",
+    "warnings": []
+  }
+}

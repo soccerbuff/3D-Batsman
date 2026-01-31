@@ -101,7 +101,12 @@ function WhyCard({ item, type, id, expanded, setExpanded }) {
       </button>
       {isOpen && (
         <div className="px-4 pb-4 pt-0 border-t border-white/5">
-          <p className="text-base text-slate-400 leading-relaxed pt-4 pb-3">
+          {item.mechanistic_link && (
+            <p className="text-base text-slate-300 leading-relaxed pt-4 pb-2">
+              {item.mechanistic_link}
+            </p>
+          )}
+          <p className="text-base text-slate-400 leading-relaxed pt-2 pb-3">
             {item.explanation}
           </p>
           {item.data && (

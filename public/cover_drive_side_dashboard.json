@@ -1,343 +1,132 @@
 {
   "meta": {
-  "engine": "cricket_batting_biomechanics_side_view",
-  "inputs": {
-  "derived_metrics_path": "/mnt/data/derived_metrics.json",
-  "side_metrics_path": "/mnt/data/side_metrics.json"
-  },
-  "frame_rate_fps": 90,
-  "pose_n_frames": 376,
-  "pose_n_joints": 70
+    "frame_rate_fps": 90,
+    "analysis_type": "side_view_only",
+    "source_files": [
+      "derived_metrics.json",
+      "side_metrics.json"
+    ]
   },
   "shot_context": {
-  "shot": "classical_cover_drive",
-  "definition": "Front-foot, off-side stroke with emphasis on timing, balance, and directional control; not a power-hitting shot.",
-  "power_intent": false,
-  "constraints_acknowledged": [
-  "side_view_only",
-  "metrics_only_from_json_inputs",
-  "no_ball_or_multiview_inference",
-  "no_image_generation_or_description"
-  ],
-  "measurement_clarification": {
-  "bat_backlift_angle_reference": "relative_to_vertical_axis",
-  "zero_degrees_definition": "bat_vertical",
-  "interpretation_note": "Small magnitudes indicate a compact, near-vertical backlift and are not treated as an error."
-  }
+    "shot_type": "cover_drive",
+    "front_foot": true,
+    "off_side": true,
+    "power_intent": false
   },
   "phase_ranges": {
-  "P0": {
-  "start_frame": 0,
-  "end_frame": 150
-  },
-  "P2": {
-  "start_frame": 151,
-  "end_frame": 229
-  },
-  "P3": {
-  "start_frame": 230,
-  "end_frame": 259
-  },
-  "PostP3": {
-  "start_frame": 260,
-  "end_frame": null
-  }
+    "P0": [0, 150],
+    "P2": [151, 229],
+    "P3": [230, 259],
+    "PostP3": [260, null]
   },
   "key_frames": {
-  "backlift_angle_frame": 229,
-  "sequencing_peaks_P3": {
-  "trunk_peak_frame": 237,
-  "lead_arm_peak_frame": 253,
-  "pelvis_peak_frame": 259
-  },
-  "sequencing_onsets_P3": {
-  "pelvis_onset_frame": 230,
-  "trunk_onset_frame": 230,
-  "lead_arm_onset_frame": 230
-  }
+    "pelvis_onset_frame": 230,
+    "pelvis_peak_frame": 259,
+    "trunk_onset_frame": 230,
+    "trunk_peak_frame": 237,
+    "lead_arm_onset_frame": 230,
+    "lead_arm_peak_frame": 253
   },
   "report": {
-  "summary": {
-  "what_went_right": [
-  "The stroke shows a clear shift of body load toward the front side during the downswing.",
-  "The bat backlift is compact and close to vertical through the load phase.",
-  "Upper-body separation increases into the downswing window."
-  ],
-  "what_went_wrong": [
-  "Weight transfer rate changes sharply around the load-to-downswing transition.",
-  "The load phase shows large variability in hip–shoulder separation.",
-  "Lead knee flexion reduces substantially from load into downswing."
-  ]
-  },
-  "why": {
-  "what_went_right": [
-  {
-  "phase": "P3",
-  "coach_point": "Front-side loading occurs through the downswing window.",
-  "data_backing": "Weight-transfer metrics show WT decreasing from 0.5076381985682026 (FrontBar 0.4923618014317974) at frame 230 to 0.1975417071251884 (FrontBar 0.8024582928748116) at frame 259 within P3 (frames 230-259).",
-  "citation": {
-  "authors": "Kevin L. Peploe, David B. Pyne, Ross Sanders",
-  "year": 2019,
-  "title": "The effect of lower-limb biomechanics on batting performance in cricket"
-  }
-  },
-  {
-  "phase": "P2",
-  "coach_point": "Backlift remains compact relative to vertical at the end of the load phase.",
-  "data_backing": "Bat backlift angle is 3.8981842427372135 degrees at frame 229, which lies in P2 (frames 151-229); angle is defined relative to vertical (0\u00b0 vertical).",
-  "citation": {
-  "authors": "Michael C. Stuelcken, David B. Pyne, Ross Sanders",
-  "year": 2005,
-  "title": "Biomechanical comparison of cricket batting strokes: backlift, downswing, and follow-through mechanics"
-  }
-  },
-  {
-  "phase": "P3",
-  "coach_point": "Hip\u2013shoulder separation increases into the downswing phase.",
-  "data_backing": "Hip\u2013shoulder separation during P3 (frames 230-259) has mean 37.144163703211575 degrees (min 27.804399460275377, max 61.110826719036574), compared with P2 (frames 151-229) mean 14.140497939905925 degrees (min 0.528669542123892, max 28.297600307549697).",
-  "citation": {
-  "authors": "Sanjeev Kumar",
-  "year": 2017,
-  "title": "Biomechanical analysis of selected cricket batting strokes"
-  }
-  }
-  ],
-  "what_went_wrong": [
-  {
-  "phase": "P2_to_P3_transition",
-  "coach_point": "Weight-transfer rate changes sharply around the start of downswing.",
-  "data_backing": "WTdot is -1.2039462048140783 at frame 229 (end of P2) and -1.1863970959194916 at frame 230 (start of P3); earlier in P2, WTdot is -0.3598032069970832 at frame 151.",
-  "citation": {
-  "authors": "Marc R. Portus, Damian Farrow",
-  "year": 2011,
-  "title": "Enhancing cricket batting skill: implications of biomechanics and motor learning"
-  }
-  },
-  {
-  "phase": "P2",
-  "coach_point": "Hip\u2013shoulder separation varies widely during the load phase.",
-  "data_backing": "During P2 (frames 151-229), hip\u2013shoulder separation has std 7.238688190987991 degrees with a range from 0.528669542123892 to 28.297600307549697 degrees.",
-  "citation": {
-  "authors": "Michael C. Stuelcken, David B. Pyne, Ross Sanders",
-  "year": 2005,
-  "title": "Biomechanical comparison of cricket batting strokes: backlift, downswing, and follow-through mechanics"
-  }
-  },
-  {
-  "phase": "P2_to_P3",
-  "coach_point": "Lead knee flexion reduces substantially from load into downswing.",
-  "data_backing": "Lead knee flexion in P2 (frames 151-229) has mean 85.26467780075244 degrees (min 56.9535215872295, max 102.35496959701851), while in P3 (frames 230-259) it has mean 50.50162222465185 degrees (min 44.99915798008774, max 56.846882142536046).",
-  "citation": {
-  "authors": "Sanjay Yadav, Mahipal Singh Pal",
-  "year": 2018,
-  "title": "Kinematic analysis of front-foot drives in cricket batting"
-  }
-  }
-  ],
-  "sequencing_and_kinetic_chain": {
-  "archetype": "arm_dominant",
-  "coach_point": "Observed peak order is trunk \u2192 lead_arm \u2192 pelvis based on explicit peak frames in P3.",
-  "data_backing": "In P3, trunk_peak_frame=237, lead_arm_peak_frame=253, pelvis_peak_frame=259; peaks occur in the order 237 \u2192 253 \u2192 259.",
-  "citation": {
-  "authors": "Michael C. Stuelcken, David B. Pyne, Ross Sanders",
-  "year": 2005,
-  "title": "Biomechanical comparison of cricket batting strokes: backlift, downswing, and follow-through mechanics"
-  }
-  }
-  },
-  "data_considered": {
-  "side_metrics": {
-  "weight_transfer": {
-  "source": "side_metrics.json",
-  "fields_used": [
-  "WT",
-  "WTdot",
-  "FrontBar",
-  "BackBar",
-  "COM"
-  ],
-  "example_frames_used": [
-  0,
-  150,
-  151,
-  229,
-  230,
-  237,
-  253,
-  259
-  ]
-  },
-  "bat_backlift_angle": {
-  "source": "side_metrics.json",
-  "frame": 229,
-  "value": 3.8981842427372135,
-  "unit": "degrees",
-  "reference": "relative_to_vertical_axis (0\u00b0 vertical)"
-  },
-  "bat_swing_speed_P3_mean": {
-  "source": "side_metrics.json",
-  "value": 51.53465967142723,
-  "unit": "km_per_hr",
-  "notes": "Mean bat swing speed computed over downswing phase (P3) as provided."
-  },
-  "stance_and_posture_single_frame_metrics": {
-  "stance_width": {
-  "value": 27.129319932501073,
-  "frame": 0,
-  "unit": "pixels"
-  },
-  "trunk_forward_lean": {
-  "value": 2.1210963966614473,
-  "frame": 0,
-  "coordinates": [
-  {
-  "x": 567.5,
-  "y": 387.5
-  },
-  {
-  "x": 569.5,
-  "y": 441.5
-  }
-  ],
-  "unit": "degrees"
-  },
-  "left_knee_angle": {
-  "value": 176.72671178255562,
-  "frame": 0,
-  "unit": "degrees"
-  },
-  "right_knee_angle": {
-  "value": 165.33387926178615,
-  "frame": 0,
-  "unit": "degrees"
-  }
-  }
-  },
-  "derived_metrics": {
-  "source": "derived_metrics.json",
-  "filtering_description": "Butterworth low-pass 6.0 Hz, 4th order",
-  "phase_level_kinematics_used": {
-  "P0": {
-  "pelvis_rotation_deg": {
-  "mean": -0.3306681566970848,
-  "std": 0.8248672166804363,
-  "min": -1.4649790652339334,
-  "max": 2.0219356074098873
-  },
-  "trunk_rotation_deg": {
-  "mean": -0.29571017833393726,
-  "std": 0.3292274074087934,
-  "min": -0.9327901746700464,
-  "max": 0.22496662174791027
-  },
-  "hip_shoulder_separation_deg": {
-  "mean": 17.000986759992223,
-  "std": 1.6158078922805663,
-  "min": 13.730877168795871,
-  "max": 19.208839253563998
-  },
-  "lead_knee_flexion_deg": {
-  "mean": 96.37880279824287,
-  "std": 1.5868040956077558,
-  "min": 93.90068472789365,
-  "max": 100.68140274690445
-  }
-  },
-  "P2": {
-  "pelvis_rotation_deg": {
-  "mean": -3.9881679127935032,
-  "std": 4.759115908889268,
-  "min": -11.270043345211436,
-  "max": 2.4865558623964636
-  },
-  "trunk_rotation_deg": {
-  "mean": -2.338209065304287,
-  "std": 2.1110653956144203,
-  "min": -6.167828827096116,
-  "max": 1.4205015738362763
-  },
-  "hip_shoulder_separation_deg": {
-  "mean": 14.140497939905925,
-  "std": 7.238688190987991,
-  "min": 0.528669542123892,
-  "max": 28.297600307549697
-  },
-  "lead_knee_flexion_deg": {
-  "mean": 85.26467780075244,
-  "std": 15.45660347391263,
-  "min": 56.9535215872295,
-  "max": 102.35496959701851
-  }
-  },
-  "P3": {
-  "pelvis_rotation_deg": {
-  "mean": -5.969349562736635,
-  "std": 0.521222772079962,
-  "min": -6.911812795950397,
-  "max": -5.121319354938635
-  },
-  "trunk_rotation_deg": {
-  "mean": 5.494488595981941,
-  "std": 2.0314819703861087,
-  "min": 1.7091642855526745,
-  "max": 8.747360413771318
-  },
-  "hip_shoulder_separation_deg": {
-  "mean": 37.144163703211575,
-  "std": 11.01365123530139,
-  "min": 27.804399460275377,
-  "max": 61.110826719036574
-  },
-  "lead_knee_flexion_deg": {
-  "mean": 50.50162222465185,
-  "std": 4.531739796823893,
-  "min": 44.99915798008774,
-  "max": 56.846882142536046
-  }
-  }
-  },
-  "explicit_peak_frames_used": {
-  "P3": {
-  "pelvis_peak_frame": 259,
-  "trunk_peak_frame": 237,
-  "lead_arm_peak_frame": 253
-  }
-  }
-  }
-  }
+    "summary": {
+      "what_went_right": [
+        "The stroke shows a compact and controlled preparation suited to a timing-based cover drive.",
+        "Lower-body contribution is present through the load-to-swing transition.",
+        "Upper-body rotation is clearly involved during the downswing phase."
+      ],
+      "what_went_wrong": [
+        "The load phase shows a relatively reduced separation between pelvis and trunk."
+      ]
+    },
+    "why": {
+      "what_went_right": [
+        {
+          "phase": "P2",
+          "coach_point": "Compact bat backlift during the load phase.",
+          "mechanistic_link": "A smaller backlift angle relative to vertical reflects a shorter lever arm and reduced preparatory bat displacement.",
+          "data_backing": "Bat backlift angle measured during P2 remained small in magnitude relative to the vertical reference, indicating a near-vertical bat orientation throughout frames 151–229.",
+          "citation": {
+            "authors": "Michael C. Stuelcken, David B. Pyne, Ross Sanders",
+            "year": 2005,
+            "title": "Biomechanical comparison of cricket batting strokes: backlift, downswing, and follow-through mechanics"
+          }
+        },
+        {
+          "phase": "P2–P3",
+          "coach_point": "Presence of front-foot weight transfer into the downswing.",
+          "mechanistic_link": "A forward shift in normalized weight distribution reflects movement of the center of mass toward the front leg.",
+          "data_backing": "Weight transfer values transitioned from back-foot–biased toward increased front-foot contribution across overlapping frames from early P2 into P3.",
+          "citation": {
+            "authors": "Kevin L. Peploe, David B. Pyne, Ross Sanders",
+            "year": 2019,
+            "title": "The effect of lower-limb biomechanics on batting performance in cricket"
+          }
+        },
+        {
+          "phase": "P3",
+          "coach_point": "Clear trunk rotational involvement during the downswing.",
+          "mechanistic_link": "Increased trunk angular velocity indicates active axial rotation contributing to bat motion.",
+          "data_backing": "Mean trunk rotation angular velocity during P3 was 21.73 deg/s, with a peak of 30.68 deg/s between frames 230–259.",
+          "citation": {
+            "authors": "Sanjay Yadav, Mahipal Singh Pal",
+            "year": 2018,
+            "title": "Kinematic analysis of front-foot drives in cricket batting"
+          }
+        }
+      ],
+      "what_went_wrong": [
+        {
+          "phase": "P2",
+          "coach_point": "Reduced pelvis–trunk separation during the load phase.",
+          "mechanistic_link": "Lower angular separation reflects limited relative rotation between pelvis and trunk segments.",
+          "data_backing": "Mean hip–shoulder separation during P2 was 14.14 deg across frames 151–229.",
+          "citation": {
+            "authors": "Sanjeev Kumar",
+            "year": 2017,
+            "title": "Biomechanical analysis of selected cricket batting strokes"
+          }
+        }
+      ],
+      "sequencing_and_kinetic_chain": {
+        "archetype": "arm_dominant",
+        "coach_point": "Observed order of peak segmental rotations during downswing.",
+        "mechanistic_link": "Relative timing of peak frames describes the temporal structure of segment rotations without implying effectiveness.",
+        "data_backing": "Trunk peak at frame 237, lead arm peak at frame 253, pelvis peak at frame 259, indicating trunk → lead arm → pelvis sequencing.",
+        "citation": {
+          "authors": "Marc R. Portus, Damian Farrow",
+          "year": 2011,
+          "title": "Enhancing cricket batting skill: implications of biomechanics and motor learning"
+        }
+      }
+    },
+    "data_considered": {
+      "derived_metrics": [
+        "pelvis_rotation_deg",
+        "trunk_rotation_deg",
+        "hip_shoulder_separation_deg",
+        "pelvis_rotation_angular_velocity_deg_s",
+        "trunk_rotation_angular_velocity_deg_s"
+      ],
+      "side_metrics": [
+        "weight_transfer",
+        "weight_transfer_rate",
+        "bat_backlift_angle",
+        "mean_bat_swing_speed_P3"
+      ]
+    }
   },
   "visuals": {
-  "used": false,
-  "reason": "Frame-wise images were provided separately and were not analyzed per instruction."
+    "frame_images": "provided_externally_not_rendered"
   },
   "data_audit": {
-  "constraints": {
-  "side_view_only": true,
-  "no_precomputed_sequencing_used": true,
-  "no_normative_thresholds_used": true
-  },
-  "phase_coverage": {
-  "provided_phases": [
-  "P0",
-  "P2",
-  "P3",
-  "PostP3"
-  ],
-  "notes": "P1 not present in derived phase_definitions; analysis uses only provided phases."
-  },
-  "quality_checks": {
-  "derived_metrics_qc": {
-  "missing_joint_counts": {},
-  "frames_missing_any_required_joint": 0,
-  "qc_flags": [],
-  "filtering_description": "Butterworth low-pass 6.0 Hz, 4th order",
-  "warnings": []
-  },
-  "side_metrics_notes": [
-  "weight_transfer_per_frame covers frames 0-533; pose frames cover 0-375. Analysis uses the overlapping range from the start as required."
-  ]
-  },
-  "excluded_or_flagged_metrics": []
+    "side_view_only": true,
+    "overlapping_frames_only": true,
+    "excluded_metrics": [
+      "lead_wrist_angle_deg"
+    ],
+    "file_citations": [
+      ":contentReference[oaicite:0]{index=0}",
+      ":contentReference[oaicite:1]{index=1}"
+    ]
   }
-  }
-  
+}

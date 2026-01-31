@@ -68,11 +68,12 @@ export function getReportWhy(data) {
   const why = data.report?.why;
   if (!why) return null;
 
-  // Dashboard format: what_went_right / what_went_wrong are arrays of { phase, coach_point, data_backing, citation }
+  // Dashboard format: what_went_right / what_went_wrong are arrays of { phase, coach_point, mechanistic_link?, data_backing, citation }
   if (Array.isArray(why.what_went_right) || Array.isArray(why.what_went_wrong)) {
     const mapItem = (item) => ({
       phase: item.phase ?? '',
       point: item.coach_point ?? item.point ?? '',
+      mechanistic_link: item.mechanistic_link ?? '',
       explanation: item.data_backing ?? item.explanation ?? '',
       citation: formatCitation(item.citation) ?? item.citation,
       data: item.data,
@@ -109,16 +110,18 @@ export function getTimelines(data) {
   const summary = data.report?.summary;
   const dataConsidered = data.report?.data_considered;
   const whySeq = data.report?.why?.sequencing_and_kinetic_chain;
-  const explicitPeaks = dataConsidered?.derived_metrics?.explicit_peak_frames_used?.P3;
+  const explicitPeaks =
+    dataConsidered?.derived_metrics?.explicit_peak_frames_used?.P3 ?? data.key_frames;
   if (!summary && !dataConsidered && !whySeq) return null;
 
-  // Sequencing: from summary or from dashboard's sequencing_and_kinetic_chain + explicit_peak_frames_used
+  // Sequencing: from summary or from dashboard's sequencing_and_kinetic_chain + key_frames / explicit_peak_frames_used
   let sequencing = null;
   const seq = summary?.sequencing_archetype ?? whySeq;
   const peakOrder = seq?.peak_order_by_frame ?? [];
-  if (seq?.archetype || explicitPeaks) {
-    const archetype = seq?.archetype ?? explicitPeaks?.archetype ?? whySeq?.archetype;
-    const peakFrames = explicitPeaks ?? seq?.peak_frames ?? {};
+  const peakFramesSource = explicitPeaks ?? seq?.peak_frames ?? data.key_frames ?? {};
+  if (seq?.archetype || peakFramesSource?.trunk_peak_frame != null || peakFramesSource?.pelvis_peak_frame != null) {
+    const archetype = seq?.archetype ?? whySeq?.archetype ?? 'arm_dominant';
+    const peakFrames = peakFramesSource;
     const order = peakOrder.length
       ? peakOrder.map((entry) => (Array.isArray(entry) ? entry[0] : entry))
       : ['trunk_peak_frame', 'lead_arm_peak_frame', 'pelvis_peak_frame'].filter((k) => peakFrames[k] != null);
@@ -127,10 +130,14 @@ export function getTimelines(data) {
     if (peakFrames.lead_arm_peak_frame != null) frames.lead_arm_peak_frame = peakFrames.lead_arm_peak_frame;
     if (peakFrames.pelvis_peak_frame != null) frames.pelvis_peak_frame = peakFrames.pelvis_peak_frame;
     sequencing = {
-      method: whySeq?.data_backing ?? 'Derived from explicit peak frames (trunk, lead arm, pelvis).',
-      archetype: archetype ?? 'arm_dominant',
+      method: whySeq?.data_backing ?? whySeq?.mechanistic_link ?? 'Derived from explicit peak frames (trunk, lead arm, pelvis).',
+      archetype,
       peak_order: order.length ? order : Object.keys(frames),
       peak_frames: Object.keys(frames).length ? frames : undefined,
+      coach_point: whySeq?.coach_point,
+      mechanistic_link: whySeq?.mechanistic_link,
+      data_backing: whySeq?.data_backing,
+      citation: formatCitation(whySeq?.citation) ?? whySeq?.citation,
     };
   } else if (seq) {
     sequencing = {
@@ -160,16 +167,28 @@ export function getTimelines(data) {
       }
     : null;
 
-  return { sequencing, weight_transfer_pattern, mean_bat_speed_P3 };
+  return {
+    sequencing,
+    weight_transfer_pattern,
+    mean_bat_speed_P3,
+    data_considered: data.report?.data_considered ?? null,
+  };
 }
 
 export function getMeta(data) {
   const meta = data.meta ?? {};
   const shotContext = data.shot_context ?? {};
+  const postP3End = data.phase_ranges?.PostP3?.[1];
+  const n_pose_frames =
+    meta.n_pose_frames ??
+    meta.pose_n_frames ??
+    (typeof postP3End === 'number' ? postP3End + 1 : null) ??
+    data.report?.data_considered?.pose_frames_n ??
+    376;
   return {
     shot_type: meta.shot_type ?? shotContext.shot_type ?? shotContext.shot ?? 'cover_drive',
     view: meta.view ?? 'side',
     frame_rate_fps: meta.frame_rate_fps ?? 90,
-    n_pose_frames: meta.n_pose_frames ?? meta.pose_n_frames ?? data.report?.data_considered?.pose_frames_n ?? 376,
+    n_pose_frames,
   };
 }
