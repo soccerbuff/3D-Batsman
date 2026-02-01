@@ -49,7 +49,7 @@ export function MetricsPanel({ metrics, error }) {
       </Section>
 
       <Section title="Swing & Impact" color="text-gray-800" border="border-accent/50">
-        <MetricCard label="Backlift Angle" value={backliftAngle != null ? backliftAngle.toFixed(1) : null} unit={getValue(metrics, 'backlift_angle.unit')} />
+        <MetricCard label="Backlift Angle" value={backliftAngle != null ? backliftAngle.toFixed(1) : null} unit={getValue(metrics, 'backlift_angle.unit')} desc="Measured relative to vertical; smaller angle = higher backlift." />
         <MetricCard label="Mean Bat Speed" value={meanBatSpeed != null ? meanBatSpeed.toFixed(1) : null} unit={getValue(metrics, 'bat_swing_speed_P3.unit')?.replace('_', '/')} />
       </Section>
     </div>

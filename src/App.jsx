@@ -101,7 +101,7 @@ export default function App() {
       </div>
 
       <main className="max-w-6xl mx-auto px-4 py-6 space-y-8 bg-white">
-        <ReportSummary summary={reportSummary} />
+        <ReportSummary summary={reportSummary} why={reportWhy} />
         <Storyboard frames={storyboardFrames} />
         <ReportWhy why={reportWhy} />
         <Timelines timelines={timelines} derivedMetrics={derivedMetrics} />
