@@ -1,6 +1,6 @@
 {
   "stance_width": {
-    "value": 75.40031233749443,
+    "value": 29.6,
     "frame": 0,
     "coordinates": [
       {
@@ -18,7 +18,7 @@
     ],
     "unit": "cm",
     "original_pixels": 49.01020301937138,
-    "scale_factor": 0.65
+    "scale_factor": 0.6038760397530832
   },
   "trunk_forward_lean": {
     "value": 2.1210963966614473,
@@ -6525,8 +6525,8 @@
     "unit": "degrees"
   },
   "bat_swing_speed_P3": {
-    "bat_swing_speed_P3_mean": 51.53465967142723,
+    "bat_swing_speed_P3_mean": 47.86618080088868,
     "unit": "km_per_hr",
-    "scale_factor": 0.65
+    "scale_factor": 0.6038760397530832
   }
 }
