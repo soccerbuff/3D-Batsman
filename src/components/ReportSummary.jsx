@@ -8,12 +8,18 @@ export function ReportSummary({ summary }) {
 
   const right = summary.what_went_right ?? [];
   const wrong = summary.what_went_wrong ?? [];
+  const insights = summary.insights;
 
   return (
     <section className="bg-panel border border-border-dim rounded-xl p-5">
       <h2 className="text-base font-bold uppercase tracking-wider text-slate-400 mb-5">
         Report summary
       </h2>
+      {insights && (
+        <p className="text-slate-200 leading-relaxed mb-6 pb-6 border-b border-border-dim">
+          {insights}
+        </p>
+      )}
       <div className="grid md:grid-cols-2 gap-6">
         <div className="space-y-3">
           <div className="flex items-center gap-2 mb-4">

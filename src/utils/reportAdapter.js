@@ -50,6 +50,7 @@ export function getReportSummary(data) {
   if (Array.isArray(right) && (Array.isArray(wrong) || !wrong)) {
     const normalize = (item) => (typeof item === 'string' ? { statement: item } : item);
     return {
+      insights: summary.insights ?? null,
       what_went_right: right.map(normalize),
       what_went_wrong: (wrong ?? []).map(normalize),
       sequencing_archetype: sequencingArchetype,
