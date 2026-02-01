@@ -3,20 +3,22 @@
 @tailwind utilities;
 
 :root {
-  --bg-dark: #0B0C15;
-  --panel: #0E0F19;
-  --card: #1A1C26;
-  --border-dim: rgba(255,255,255,0.06);
+  --bg-dark: #FFFFFF;
+  --panel: #FFFFFF;
+  --card: #FFFFFF;
+  --border-dim: #E0E0E0;
+  --accent: #FF6C3D;
+  --accent-warning: #FFB84C;
 }
 
 body {
-  background-color: var(--bg-dark);
-  color: #fff;
+  background-color: #FFFFFF;
+  color: #333333;
   font-family: system-ui, -apple-system, sans-serif;
   margin: 0;
   padding: 0;
 }
 
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #F0F0F0; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #BDBDBD; border-radius: 3px; }

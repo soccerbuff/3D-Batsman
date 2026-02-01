@@ -30,26 +30,33 @@ export function Storyboard({ frames }) {
   const visibleItems = visibleIndices.map((i) => frames[i]);
 
   return (
-    <section className="bg-panel border border-border-dim rounded-xl p-5 relative overflow-visible">
+    <section className="bg-white border border-border-dim rounded-xl p-5 relative overflow-visible shadow-lg">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-base font-bold uppercase tracking-wider text-slate-400">
+        <h2 className="text-base font-bold uppercase tracking-wider text-gray-600">
           Phase storyboard
         </h2>
-        <div className="flex rounded-lg bg-card border border-white/10 p-0.5">
-          <button
-            type="button"
-            onClick={() => setMode('original')}
-            className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${mode === 'original' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-slate-200'}`}
-          >
-            Original
-          </button>
-          <button
-            type="button"
-            onClick={() => setMode('3d')}
-            className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors ${mode === '3d' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-slate-200'}`}
-          >
-            3D
-          </button>
+        <div className="flex items-center gap-2">
+          <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">View</span>
+          <div className="flex rounded-lg bg-gray-200 border-2 border-gray-400 p-1 shadow-inner" role="group" aria-label="View mode">
+            <button
+              type="button"
+              onClick={() => setMode('original')}
+              className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors ${mode === 'original' ? 'bg-accent text-gray-900 shadow-md' : 'text-gray-700 hover:bg-gray-300 hover:text-gray-900'}`}
+              aria-pressed={mode === 'original'}
+              aria-label="Show original frames"
+            >
+              Original
+            </button>
+            <button
+              type="button"
+              onClick={() => setMode('3d')}
+              className={`px-4 py-2 text-sm font-semibold rounded-md transition-colors ${mode === '3d' ? 'bg-accent text-gray-900 shadow-md' : 'text-gray-700 hover:bg-gray-300 hover:text-gray-900'}`}
+              aria-pressed={mode === '3d'}
+              aria-label="Show 3D mesh frames"
+            >
+              3D
+            </button>
+          </div>
         </div>
       </div>
 
@@ -58,7 +65,7 @@ export function Storyboard({ frames }) {
           type="button"
           onClick={() => setCurrentIndex((i) => Math.max(0, i - 1))}
           disabled={!canGoLeft}
-          className="absolute left-0 top-1/2 -translate-x-[51%] -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-card border border-white/10 hover:bg-white/10 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center text-white text-2xl font-light transition-colors shadow-lg"
+          className="absolute left-0 top-1/2 -translate-x-[51%] -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white border border-border-dim hover:bg-gray-50 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center text-gray-800 text-2xl font-light transition-colors shadow-lg"
           aria-label="Previous phase"
         >
           ‹
@@ -80,7 +87,7 @@ export function Storyboard({ frames }) {
           type="button"
           onClick={() => setCurrentIndex((i) => Math.min(frames.length - 1, i + 1))}
           disabled={!canGoRight}
-          className="absolute right-0 top-1/2 translate-x-[51%] -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-card border border-white/10 hover:bg-white/10 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center text-white text-2xl font-light transition-colors shadow-lg"
+          className="absolute right-0 top-1/2 translate-x-[51%] -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white border border-border-dim hover:bg-gray-50 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center text-gray-800 text-2xl font-light transition-colors shadow-lg"
           aria-label="Next phase"
         >
           ›
@@ -93,7 +100,7 @@ export function Storyboard({ frames }) {
             key={i}
             type="button"
             onClick={() => setCurrentIndex(i)}
-            className={`w-2 h-2 rounded-full transition-colors ${i === currentIndex ? 'bg-indigo-500' : 'bg-white/20 hover:bg-white/40'}`}
+            className={`w-2 h-2 rounded-full transition-colors ${i === currentIndex ? 'bg-accent' : 'bg-gray-300 hover:bg-gray-400'}`}
             aria-label={`Go to phase ${i + 1}`}
           />
         ))}
@@ -119,9 +126,9 @@ function PhaseCard({ item, mode, isCurrent, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className={`flex-1 min-w-0 max-w-[360px] bg-card border rounded-xl overflow-hidden text-left hover:border-indigo-500/40 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-dashboard-bg ${isCurrent ? 'border-indigo-500/50 ring-1 ring-indigo-500/30' : 'border-white/5'}`}
+      className={`flex-1 min-w-0 max-w-[360px] bg-white border-2 rounded-xl overflow-hidden text-left hover:border-accent/60 transition-all focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-white shadow-lg hover:shadow-xl ${isCurrent ? 'border-black ring-2 ring-black/20' : 'border-black'}`}
     >
-      <div className="aspect-[4/3] bg-slate-800/50 relative flex items-center justify-center overflow-hidden">
+      <div className="aspect-[4/3] bg-gray-200 relative flex items-center justify-center overflow-hidden">
         {!imgFailed ? (
           <img
             src={imgSrc}
@@ -129,21 +136,22 @@ function PhaseCard({ item, mode, isCurrent, onClick }) {
             className={`w-full h-full object-contain ${mode === '3d' ? 'rotate-90' : ''}`}
             onError={() => setImgFailed(true)}
           />
-        ) : null}
-        <div className={`absolute inset-0 flex flex-col items-center justify-center p-3 bg-slate-800/80 text-center ${!imgFailed ? 'hidden' : ''}`}>
-          <span className="text-4xl text-slate-600 font-mono">{frame}</span>
-          <span className="text-sm text-slate-500 mt-1">Frame</span>
-          <span className="text-xs text-slate-600 mt-2">
-            Add image: {mode === '3d' ? `frame_${String(frame).padStart(5, '0')}_mesh.png` : `frame_${frame}.png`}
-          </span>
-        </div>
+        ) : (
+          <div className="absolute inset-0 flex flex-col items-center justify-center p-3 bg-gray-300 text-center">
+            <span className="text-4xl text-gray-600 font-mono">{frame}</span>
+            <span className="text-sm text-gray-500 mt-1">Frame</span>
+            <span className="text-xs text-gray-600 mt-2">
+              {mode === '3d' ? `frame_${String(frame).padStart(5, '0')}_mesh.png` : `frame_${frame}.png`}
+            </span>
+          </div>
+        )}
       </div>
-      <div className="p-3 border-t border-white/5">
+      <div className="p-3 border-t border-border-dim">
         <div className="flex items-center gap-2">
-          <span className="text-sm font-bold text-indigo-400 uppercase">{phase}</span>
-          <span className="text-sm font-mono text-slate-500">Frame {frame}</span>
+          <span className="text-sm font-bold text-accent uppercase">{phase}</span>
+          <span className="text-sm font-mono text-gray-500">Frame {frame}</span>
         </div>
-        <p className="text-base font-medium text-slate-200 mt-1 truncate" title={label}>{label}</p>
+        <p className="text-base font-medium text-gray-800 mt-1 truncate" title={label}>{label}</p>
       </div>
     </button>
   );
@@ -170,7 +178,7 @@ function Lightbox({ item, mode, onClose }) {
       <button
         type="button"
         onClick={onClose}
-        className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-xl font-bold z-10"
+        className="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-700 hover:bg-gray-600 flex items-center justify-center text-gray-100 text-xl font-bold z-10"
         aria-label="Close"
       >
         ×
@@ -184,11 +192,11 @@ function Lightbox({ item, mode, onClose }) {
           alt={label}
           className={`max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-lg shadow-2xl ${mode === '3d' ? 'rotate-90' : ''}`}
         />
-        <div className="mt-3 text-center text-slate-300">
-          <span className="text-sm font-bold text-indigo-400 uppercase">{phase}</span>
-          <span className="text-slate-500 mx-2">·</span>
-          <span className="text-base font-mono text-slate-400">Frame {frame}</span>
-          <p className="text-base font-medium text-white mt-1">{label}</p>
+        <div className="mt-3 text-center text-gray-200">
+          <span className="text-sm font-bold text-accent uppercase">{phase}</span>
+          <span className="text-gray-400 mx-2">·</span>
+          <span className="text-base font-mono text-gray-300">Frame {frame}</span>
+          <p className="text-base font-medium text-gray-100 mt-1">{label}</p>
         </div>
       </div>
     </div>

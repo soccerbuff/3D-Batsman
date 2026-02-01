@@ -10,7 +10,7 @@ export function VideoPlayer() {
   }, []);
 
   return (
-    <div className="w-full h-full bg-black rounded-xl overflow-hidden shadow-2xl border border-white/10 relative group">
+    <div className="w-full h-full bg-black rounded-xl overflow-hidden shadow-2xl border border-gray-700 relative group">
       <video
         ref={videoRef}
         src="/side_annotated.mp4"

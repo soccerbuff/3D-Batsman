@@ -4,10 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        "dashboard-bg": "#0B0C15",
-        "panel": "#0E0F19",
-        "card": "#1A1C26",
-        "border-dim": "#ffffff10",
+        "dashboard-bg": "#FFFFFF",
+        "panel": "#FFFFFF",
+        "card": "#FFFFFF",
+        "border-dim": "#E0E0E0",
+        accent: "#FF6C3D",
+        "accent-warning": "#FFB84C",
       },
     },
   },
